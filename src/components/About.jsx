@@ -1,7 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { FiCode, FiCoffee, FiZap, FiHeart } from "react-icons/fi";
+import {
+  FiCode,
+  FiCoffee,
+  FiZap,
+  FiHeart,
+  FiGitBranch,
+  FiTarget,
+  FiFeather,
+  FiTrendingUp,
+} from "react-icons/fi";
 import profile from "../assets/jafProfile.jpg";
 
 const stats = [
@@ -9,6 +18,46 @@ const stats = [
   { value: "3+", label: "Years Coding", icon: <FiCoffee size={20} /> },
   { value: "15+", label: "Technologies", icon: <FiZap size={20} /> },
   { value: "100%", label: "Passion", icon: <FiHeart size={20} /> },
+];
+
+// Orbiting badges data
+const orbitalBadges = [
+  {
+    label: "React",
+    icon: <FiCode size={18} />,
+    color: "#22d3ee",
+    duration: 12,
+  },
+  {
+    label: "Full Stack",
+    icon: <FiTarget size={18} />,
+    color: "#a855f7",
+    duration: 14,
+  },
+  {
+    label: "Node.js",
+    icon: <FiGitBranch size={18} />,
+    color: "#22c55e",
+    duration: 16,
+  },
+  {
+    label: "UI/UX",
+    icon: <FiFeather size={18} />,
+    color: "#f59e0b",
+    duration: 13,
+  },
+  {
+    label: "GraphQL",
+    icon: <FiTrendingUp size={18} />,
+    color: "#ec4899",
+    duration: 15,
+  },
+  {
+    label: "Design",
+    icon: <FiZap size={18} />,
+    color: "#06b6d4",
+    duration: 18,
+  },
 ];
 
 const fadeUp = {
@@ -63,7 +112,7 @@ const About = () => {
           animate={inView ? "visible" : "hidden"}
           style={{ textAlign: "center", marginBottom: 72 }}
         >
-          <span className="section-badge">👨‍💻 About Me</span>
+          <span className="section-badge">About Me</span>
           <h2
             className="section-title"
             style={{ color: "var(--text-primary)" }}
@@ -89,7 +138,7 @@ const About = () => {
             animate={inView ? "visible" : "hidden"}
             style={{ display: "flex", justifyContent: "center" }}
           >
-            <div style={{ position: "relative" }}>
+            <div className="profile-container" style={{ position: "relative" }}>
               {/* Outer rotating ring */}
               <motion.div
                 animate={{ rotate: 360 }}
@@ -157,48 +206,135 @@ const About = () => {
                 </div>
               </motion.div>
 
-              {/* Floating badges (explicit positions around avatar) */}
-              {[
-                { label: "React", color: "#22d3ee", x: -350, y: -10 },
-                { label: "Node.js", color: "#22c55e", x: 210, y: 10 },
-                { label: "UI/UX", color: "#a855f7", x: -160, y: 175 },
-                { label: "GraphQL", color: "#e535ab", x: 0, y: -220 },
-                { label: "Design", color: "#f59e0b", x: 0, y: 220 },
-              ].map(({ label, color, x, y }, i) => {
-                return (
+              {/* Orbiting floating badges */}
+              <div
+                style={{
+                  position: "absolute",
+                  left: "50%",
+                  top: "50%",
+                  width: 0,
+                  height: 0,
+                  pointerEvents: "none",
+                }}
+              >
+                {orbitalBadges.map(({ label, icon, color, duration }, i) => (
                   <motion.div
                     key={label}
-                    className="float-anim"
+                    className={`orbital-badge-${i}`}
                     style={{
-                      animationDelay: `${i * 0.8}s`,
                       position: "absolute",
-                      left: "80%",
-                      top: "50%",
-                      transform: `translate(-30%, -70%) translate(${x}px, ${y}px)`,
                       width: 64,
                       height: 64,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      textAlign: "center",
-                      background: `rgba(${color === "#22d3ee" ? "34,211,238" : color === "#22c55e" ? "34,197,94" : "168,85,247"},0.18)`,
-                      border: `1px solid ${color}40`,
-                      borderRadius: "50%",
-                      boxShadow: `0 18px 40px rgba(15,23,42,0.15)`,
-                      padding: 10,
-                      fontSize: 11,
-                      fontWeight: 700,
-                      color,
-                      whiteSpace: "normal",
-                      lineHeight: 1.2,
-                      backdropFilter: "blur(12px)",
-                      pointerEvents: "none",
+                      left: -32,
+                      top: -32,
+                      marginLeft: -32,
+                      marginTop: -32,
+                      pointerEvents: "auto",
+                    }}
+                    animate={{
+                      y: [0, -8, 0],
+                    }}
+                    transition={{
+                      duration: 3 + i * 0.2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: i * 0.1,
                     }}
                   >
-                    {label}
+                    <motion.div
+                      className="orbital-badge"
+                      style={{
+                        width: 64,
+                        height: 64,
+                        borderRadius: "50%",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        textAlign: "center",
+                        background: `rgba(${
+                          color === "#22d3ee"
+                            ? "34,211,238"
+                            : color === "#a855f7"
+                              ? "168,85,247"
+                              : color === "#22c55e"
+                                ? "34,197,94"
+                                : color === "#f59e0b"
+                                  ? "245,158,11"
+                                  : color === "#ec4899"
+                                    ? "236,72,153"
+                                    : "6,182,212"
+                        },0.15)`,
+                        backdropFilter: "blur(16px)",
+                        WebkitBackdropFilter: "blur(16px)",
+                        border: `1.5px solid ${color}66`,
+                        boxShadow: `0 8px 24px rgba(${
+                          color === "#22d3ee"
+                            ? "34,211,238"
+                            : color === "#a855f7"
+                              ? "168,85,247"
+                              : color === "#22c55e"
+                                ? "34,197,94"
+                                : color === "#f59e0b"
+                                  ? "245,158,11"
+                                  : color === "#ec4899"
+                                    ? "236,72,153"
+                                    : "6,182,212"
+                        },0.1), inset 0 0 20px ${color}22`,
+                        position: "relative",
+                        overflow: "hidden",
+                        cursor: "pointer",
+                        willChange: "transform, box-shadow",
+                      }}
+                      whileHover={{
+                        scale: 1.15,
+                        boxShadow: `0 12px 40px rgba(${
+                          color === "#22d3ee"
+                            ? "34,211,238"
+                            : color === "#a855f7"
+                              ? "168,85,247"
+                              : color === "#22c55e"
+                                ? "34,197,94"
+                                : color === "#f59e0b"
+                                  ? "245,158,11"
+                                  : color === "#ec4899"
+                                    ? "236,72,153"
+                                    : "6,182,212"
+                        },0.4), inset 0 0 30px ${color}44`,
+                      }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 20,
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: color,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          marginBottom: 4,
+                        }}
+                      >
+                        {icon}
+                      </div>
+                      <div
+                        style={{
+                          fontSize: 10,
+                          fontWeight: 700,
+                          color: color,
+                          textTransform: "uppercase",
+                          letterSpacing: 0.5,
+                          lineHeight: 1.2,
+                        }}
+                      >
+                        {label}
+                      </div>
+                    </motion.div>
                   </motion.div>
-                );
-              })}
+                ))}
+              </div>
             </div>
           </motion.div>
 
@@ -260,11 +396,7 @@ const About = () => {
                 marginBottom: 32,
               }}
             >
-              {[
-                "IT Student",
-                "Open to Work",
-                "Fast Learner",
-              ].map((tag) => (
+              {["IT Student", "Open to Work", "Fast Learner"].map((tag) => (
                 <span
                   key={tag}
                   style={{
@@ -378,6 +510,111 @@ const About = () => {
         @media (max-width: 768px) {
           .about-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
           .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+
+        .orbital-badge {
+          transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .orbital-badge:hover {
+          background: rgba(255, 255, 255, 0.08) !important;
+        }
+
+        @keyframes orbit-1 {
+          from {
+            transform: rotate(0deg) translateX(180px) rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg) translateX(180px) rotate(-360deg);
+          }
+        }
+
+        @keyframes orbit-2 {
+          from {
+            transform: rotate(60deg) translateX(180px) rotate(-60deg);
+          }
+          to {
+            transform: rotate(420deg) translateX(180px) rotate(-420deg);
+          }
+        }
+
+        @keyframes orbit-3 {
+          from {
+            transform: rotate(120deg) translateX(180px) rotate(-120deg);
+          }
+          to {
+            transform: rotate(480deg) translateX(180px) rotate(-480deg);
+          }
+        }
+
+        @keyframes orbit-4 {
+          from {
+            transform: rotate(180deg) translateX(180px) rotate(-180deg);
+          }
+          to {
+            transform: rotate(540deg) translateX(180px) rotate(-540deg);
+          }
+        }
+
+        @keyframes orbit-5 {
+          from {
+            transform: rotate(240deg) translateX(180px) rotate(-240deg);
+          }
+          to {
+            transform: rotate(600deg) translateX(180px) rotate(-600deg);
+          }
+        }
+
+        @keyframes orbit-6 {
+          from {
+            transform: rotate(300deg) translateX(180px) rotate(-300deg);
+          }
+          to {
+            transform: rotate(660deg) translateX(180px) rotate(-660deg);
+          }
+        }
+
+        .orbital-badge-0 {
+          animation: orbit-1 12s linear infinite;
+        }
+
+        .orbital-badge-1 {
+          animation: orbit-2 14s linear infinite;
+        }
+
+        .orbital-badge-2 {
+          animation: orbit-3 16s linear infinite;
+        }
+
+        .orbital-badge-3 {
+          animation: orbit-4 13s linear infinite;
+        }
+
+        .orbital-badge-4 {
+          animation: orbit-5 15s linear infinite;
+        }
+
+        .orbital-badge-5 {
+          animation: orbit-6 18s linear infinite;
+        }
+
+        /* Responsive orbit radius */
+        @media (max-width: 1024px) {
+          .profile-container {
+            transform: scale(0.9);
+          }
+        }
+
+        @media (max-width: 768px) {
+          .profile-container {
+            transform: scale(0.8);
+          }
+        }
+
+        @media (max-width: 480px) {
+          .profile-container {
+            transform: scale(0.65);
+          }
         }
       `}</style>
     </section>
