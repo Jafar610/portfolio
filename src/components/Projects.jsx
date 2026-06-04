@@ -229,7 +229,7 @@ const Projects = () => {
           transition={{ duration: 0.7 }}
           style={{ textAlign: 'center', marginBottom: 56 }}
         >
-          <span className="section-badge">🛠️ My Work</span>
+          <span className="section-badge">My Work</span>
           <h2 className="section-title" style={{ color: 'var(--text-primary)', marginBottom: 16 }}>
             Featured <span className="gradient-text">Projects</span>
           </h2>

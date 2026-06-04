@@ -268,7 +268,7 @@ const Skills = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(85px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fill, minmax(105px, 1fr))",
             gap: 12,
             marginBottom: 64,
           }}
@@ -282,7 +282,7 @@ const Skills = () => {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "220px 1fr",
+            gridTemplateColumns: "240px 1fr",
             gap: 40,
             alignItems: "start",
           }}
@@ -296,7 +296,7 @@ const Skills = () => {
           >
             <p
               style={{
-                fontSize: 11,
+                fontSize: 12,
                 fontWeight: 700,
                 color: "var(--text-secondary)",
                 letterSpacing: 2,
@@ -392,7 +392,7 @@ const Skills = () => {
                   borderRadius: 100,
                   background: `${currentCategory.color}20`,
                   border: `1px solid ${currentCategory.color}40`,
-                  fontSize: 11,
+                  fontSize: 12,
                   fontWeight: 600,
                   color: currentCategory.color,
                 }}
