@@ -5,8 +5,8 @@ import { FiSend, FiMail, FiMapPin, FiGithub, FiLinkedin, FiTwitter, FiInstagram 
 import { SiDiscord } from 'react-icons/si';
 
 const socials = [
-  { icon: <FiGithub size={20} />, href: 'https://github.com', label: 'GitHub', color: '#f8fafc' },
-  { icon: <FiLinkedin size={20} />, href: 'https://linkedin.com', label: 'LinkedIn', color: '#0ea5e9' },
+  { icon: <FiGithub size={20} />, href: 'https://github.com/Jafar610', label: 'GitHub', color: '#f8fafc' },
+  { icon: <FiLinkedin size={20} />, href: 'https://www.linkedin.com/in/jafar-mohamed-89119235a/', label: 'LinkedIn', color: '#0ea5e9' },
   { icon: <FiTwitter size={20} />, href: 'https://twitter.com', label: 'Twitter / X', color: '#60a5fa' },
   { icon: <FiInstagram size={20} />, href: 'https://instagram.com', label: 'Instagram', color: '#e879f9' },
   { icon: <SiDiscord size={20} />, href: 'https://discord.com', label: 'Discord', color: '#818cf8' },
@@ -70,7 +70,7 @@ const Contact = () => {
           transition={{ duration: 0.7 }}
           style={{ textAlign: 'center', marginBottom: 72 }}
         >
-          <span className="section-badge">📬 Get in Touch</span>
+          <span className="section-badge"> Get in Touch</span>
           <h2 className="section-title" style={{ color: 'var(--text-primary)', marginBottom: 16 }}>
             Let's <span className="gradient-text">Connect</span>
           </h2>
@@ -90,12 +90,12 @@ const Contact = () => {
             {[
               {
                 icon: <FiMail size={20} />, label: 'Email',
-                value: 'jafar@example.com', color: '#6366f1',
-                href: 'mailto:jafar@example.com',
+                value: 'jafarmohamed501@gmail.com', color: '#6366f1',
+                href: 'mailto:jafarmohamed501@gmail.com',
               },
               {
                 icon: <FiMapPin size={20} />, label: 'Location',
-                value: 'MENA Region 🌍', color: '#22d3ee',
+                value: 'Addis Abeba, Ethiopia', color: '#22d3ee',
                 href: null,
               },
             ].map(({ icon, label, value, color, href }) => (
@@ -181,7 +181,7 @@ const Contact = () => {
                 fontFamily: 'Space Grotesk', fontSize: 20, fontWeight: 700,
                 color: 'var(--text-primary)', marginBottom: 24,
               }}>
-                Send a Message ✉️
+                Send a Message
               </h3>
 
               {submitted ? (
@@ -212,7 +212,7 @@ const Contact = () => {
                       <input
                         id="contact-name"
                         name="name" value={form.name} onChange={handleChange} required
-                        placeholder="Jafar Ahmed"
+                        placeholder="Jafar Mohamed"
                         className="form-input"
                         style={{ cursor: 'none' }}
                       />

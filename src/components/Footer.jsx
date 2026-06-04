@@ -12,8 +12,8 @@ const footerLinks = [
 ];
 
 const socials = [
-  { icon: <FiGithub size={17} />, href: 'https://github.com', label: 'GitHub' },
-  { icon: <FiLinkedin size={17} />, href: 'https://linkedin.com', label: 'LinkedIn' },
+  { icon: <FiGithub size={17} />, href: 'https://github.com/Jafar610', label: 'GitHub' },
+  { icon: <FiLinkedin size={17} />, href: 'https://www.linkedin.com/in/jafar-mohamed-89119235a/', label: 'LinkedIn' },
   { icon: <FiTwitter size={17} />, href: 'https://twitter.com', label: 'Twitter' },
 ];
 
@@ -115,7 +115,7 @@ const Footer = () => {
               ))}
             </div>
             <motion.a
-              href="mailto:jafar@example.com"
+              href="mailto:jafarmohamed501@gmail.com"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
                 padding: '9px 20px', borderRadius: 10, textDecoration: 'none',
@@ -125,7 +125,7 @@ const Footer = () => {
               whileHover={{ background: 'rgba(99,102,241,0.2)', scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
             >
-              📧 jafar@example.com
+             jafarmohamed501@gmail.com
             </motion.a>
           </div>
         </div>

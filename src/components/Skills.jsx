@@ -240,7 +240,7 @@ const Skills = () => {
           transition={{ duration: 0.7 }}
           style={{ textAlign: "center", marginBottom: 64 }}
         >
-          <span className="section-badge">⚡ Tech Stack</span>
+          <span className="section-badge"> Tech Stack</span>
           <h2
             className="section-title"
             style={{ color: "var(--text-primary)", marginBottom: 16 }}
