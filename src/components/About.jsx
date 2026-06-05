@@ -15,7 +15,7 @@ import profile from "../assets/jafProfile.jpg";
 
 const stats = [
   { value: "12+", label: "Projects Built", icon: <FiCode size={20} /> },
-  { value: "3+", label: "Years Coding", icon: <FiCoffee size={20} /> },
+  { value: "1+", label: "Years Coding", icon: <FiCoffee size={20} /> },
   { value: "15+", label: "Technologies", icon: <FiZap size={20} /> },
   { value: "100%", label: "Passion", icon: <FiHeart size={20} /> },
 ];
@@ -356,7 +356,7 @@ const About = () => {
             >
               Building the future,
               <br />
-              <span className="gradient-text">one line at a time</span>
+              <span className="gradient-text">one line of code at a time.</span>
             </h3>
 
             <p
@@ -367,11 +367,7 @@ const About = () => {
                 marginBottom: 16,
               }}
             >
-              Hey! I'm <strong style={{ color: "#a5b4fc" }}>Jafar</strong>, a
-              passionate Full Stack Developer and IT Student who loves turning
-              ideas into elegant digital experiences. I specialize in building
-              modern web applications using React, Node.js, and cutting-edge
-              tools.
+              Hey! I'm <strong style={{ color: "#a5b4fc" }}>Jafar</strong>, a passionate Full Stack Developer and IT student focused on building modern, high-performance web applications. I enjoy turning complex ideas into clean, elegant, and user-friendly digital experiences using technologies like React, Node.js, and other modern tools.
             </p>
             <p
               style={{
@@ -381,10 +377,7 @@ const About = () => {
                 marginBottom: 32,
               }}
             >
-              When I'm not coding, you'll find me exploring new technologies,
-              contributing to open-source projects, or designing user interfaces
-              that blend aesthetics with functionality. I believe great software
-              is both beautiful and powerful.
+              I have a strong interest in creating interactive and visually engaging interfaces that not only look good but also deliver real value. My approach combines solid technical skills with thoughtful design, allowing me to build applications that are both functional and intuitive.
             </p>
 
             {/* Quick info pills */}
