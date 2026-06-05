@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FiSun, FiMoon, FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
 import { RiCodeSSlashLine } from "react-icons/ri";
 
 const navLinks = [
@@ -11,7 +11,7 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-const Navbar = ({ darkMode, setDarkMode }) => {
+const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [active, setActive] = useState("home");
@@ -150,27 +150,6 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                 </motion.a>
               );
             })}
-            <motion.button
-              onClick={() => setDarkMode(!darkMode)}
-              whileHover={{ scale: 1.08 }}
-              whileTap={{ scale: 0.92 }}
-              style={{
-                marginLeft: 8,
-                width: 38,
-                height: 38,
-                borderRadius: 10,
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                cursor: "none",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "var(--text-secondary)",
-                transition: "all 0.25s ease",
-              }}
-            >
-              {darkMode ? <FiSun size={17} /> : <FiMoon size={17} />}
-            </motion.button>
           </div>
 
           {/* Mobile Hamburger */}
@@ -178,24 +157,6 @@ const Navbar = ({ darkMode, setDarkMode }) => {
             style={{ alignItems: "center", gap: 10 }}
             className="flex md:hidden"
           >
-            <motion.button
-              onClick={() => setDarkMode(!darkMode)}
-              whileTap={{ scale: 0.92 }}
-              style={{
-                width: 36,
-                height: 36,
-                borderRadius: 8,
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                cursor: "none",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "var(--text-secondary)",
-              }}
-            >
-              {darkMode ? <FiSun size={16} /> : <FiMoon size={16} />}
-            </motion.button>
             <motion.button
               onClick={() => setMobileOpen(!mobileOpen)}
               whileTap={{ scale: 0.92 }}
