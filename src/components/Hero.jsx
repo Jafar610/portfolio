@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FiDownload, FiArrowRight, FiGithub, FiLinkedin, FiTwitter } from 'react-icons/fi';
 import { SiReact } from 'react-icons/si';
 
-const roles = ['Full Stack Developer', 'React Developer', 'IT Student', 'Software Engineer', 'UI/UX Enthusiast'];
+const roles = ['Full Stack Developer', 'React Developer', 'IT Student (CGPA 3.46)', 'Software Engineer', 'UI/UX Enthusiast'];
 
 const TypewriterText = () => {
   const [currentRole, setCurrentRole] = useState(0);
@@ -261,8 +261,8 @@ const Hero = () => {
             {/* Social Icons */}
             <motion.div variants={itemVariants} style={{ display: 'flex', gap: 12 }}>
               {[
-                { icon: <FiGithub size={18} />, href: 'https://github.com', label: 'GitHub' },
-                { icon: <FiLinkedin size={18} />, href: 'https://linkedin.com', label: 'LinkedIn' },
+                { icon: <FiGithub size={18} />, href: 'https://github.com/Jafar610', label: 'GitHub' },
+                { icon: <FiLinkedin size={18} />, href: 'https://www.linkedin.com/in/jafar-mohamed-89119235a/', label: 'LinkedIn' },
                 { icon: <FiTwitter size={18} />, href: 'https://twitter.com', label: 'Twitter' },
               ].map(({ icon, href, label }) => (
                 <motion.a
