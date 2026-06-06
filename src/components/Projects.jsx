@@ -293,7 +293,7 @@ const Projects = () => {
           style={{ textAlign: 'center', marginTop: 56 }}
         >
           <motion.a
-            href="https://github.com" target="_blank" rel="noopener noreferrer"
+            href="https://github.com/Jafar610" target="_blank" rel="noopener noreferrer"
             className="btn-outline"
             style={{ display: 'inline-flex', alignItems: 'center', gap: 8, textDecoration: 'none' }}
             whileHover={{ scale: 1.04 }}

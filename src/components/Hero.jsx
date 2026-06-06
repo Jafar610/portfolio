@@ -578,7 +578,7 @@ const Hero = () => {
                 {[
                   { label: "Projects", value: "12+" },
                   { label: "Technologies", value: "15+" },
-                  { label: "Experience", value: "3 yrs" },
+                  { label: "Experience", value: "1 yrs" },
                 ].map(({ label, value }) => (
                   <div
                     key={label}
